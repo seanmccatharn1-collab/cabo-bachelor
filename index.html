@@ -48,6 +48,40 @@
       nav ul a { font-size: 0.75rem; }
     }
 
+    /* ── HERO MOBILE ── */
+    @media (max-width: 640px) {
+      #hero {
+        min-height: auto;
+        padding: 56px 1rem 3rem;
+        justify-content: flex-start;
+        gap: 0.6rem;
+      }
+      /* Pull image out of the absolute layer so it's fully visible */
+      .hero-bg {
+        position: relative !important;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center top;
+        z-index: 2;
+        border-radius: 16px;
+        margin-bottom: 0.6rem;
+      }
+      /* Darken the gradient behind the text area only */
+      #hero::after {
+        background: linear-gradient(to bottom,
+          rgba(1,42,74,0) 0%,
+          rgba(1,42,74,0.85) 40%,
+          rgba(1,42,74,0.98) 100%
+        );
+      }
+      /* Hide floating emojis so they don't clutter small screens */
+      .floater { display: none; }
+      .hero-pill { margin-top: 0.5rem; }
+      .hero-subtitle { margin-bottom: 1.5rem; }
+      .info-chip { font-size: 0.78rem; padding: 0.5rem 0.85rem; }
+    }
+
     /* ── HERO ── */
     #hero {
       min-height: 100vh;
