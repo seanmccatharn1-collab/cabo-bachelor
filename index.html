@@ -309,7 +309,7 @@
     .board-rows { padding: 0.5rem 0; min-height: 120px; }
     .board-row {
       display: grid;
-      grid-template-columns: 1.4fr 1.4fr 1fr 1fr 1.2fr;
+      grid-template-columns: 1.4fr 1.6fr 1.6fr 1.2fr;
       gap: 0.5rem;
       padding: 0.8rem 1.5rem;
       border-bottom: 1px solid #1a2d47;
@@ -464,7 +464,7 @@
   <ul>
     <li><a href="#hero">Home</a></li>
     <li><a href="#hotel">Hotel</a></li>
-    <li><a href="#flights">Flights</a></li>
+    <li><a href="#flights">Who's Going</a></li>
     <li><a href="#roomshare">Room Share</a></li>
   </ul>
 </nav>
@@ -517,7 +517,7 @@
         <img src="https://www.riu.com/dam/02-RIU-Espanol/Building-Blocks/04-Paises/13-Mexico/02-Los-Cabos/03-Hotel-Riu-Palace-Baja-California/Imagenes/001-Piscina-Exterior/piscina-hotel-riu-palace-baja-california-4.jpg" alt="Pool" />
       </div>
       <div class="gallery-sm">
-        <img src="https://www.riu.com/dam/02-RIU-Espanol/Building-Blocks/00-Bodas/Bodas-2023/Multimedia/Fotos/New-Locations-2025/BodasXBC/weddings-xbc.jpg" alt="Beachfront at Riu Palace Baja California" />
+        <img src="https://www.riu.com/dam/02-RIU-Espanol/Building-Blocks/04-Paises/13-Mexico/02-Los-Cabos/03-Hotel-Riu-Palace-Baja-California/Imagenes/023-Hotel/hotel-riu-palace-baja-california-4.jpg" alt="Hotel Riu Palace Baja California" />
       </div>
     </div>
 
@@ -561,7 +561,7 @@
 <section id="flights">
   <div class="flights-inner">
     <span class="section-eyebrow">Travel Board</span>
-    <h2 class="section-heading">Who's Flying When? ✈️</h2>
+    <h2 class="section-heading">Who's Going? ✈️</h2>
     <p class="section-lead">Already booked? Drop your flight info so the group knows when you're arriving and leaving.</p>
 
     <!-- Flight display board -->
@@ -574,7 +574,7 @@
         <div class="board-header-sub">SJD · Los Cabos Int'l Airport</div>
       </div>
       <div class="board-row board-row-header">
-        <span>Name</span><span>Arriving</span><span>Leaving</span><span>Airline</span><span>Booked Via</span>
+        <span>Name</span><span>Arriving</span><span>Leaving</span><span>Airline</span>
       </div>
       <div class="board-rows" id="flightRows">
         <div class="board-empty">No flights posted yet — be the first! 👇</div>
@@ -620,24 +620,9 @@
             <input type="time" id="fDepTime" required />
           </div>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Airline *</label>
-            <input type="text" id="fAirline" placeholder="e.g. United, Southwest…" required />
-          </div>
-          <div class="form-group">
-            <label>Booked Through *</label>
-            <select id="fBooking" required>
-              <option value="">Select…</option>
-              <option>Airline's Website</option>
-              <option>Expedia</option>
-              <option>Google Flights</option>
-              <option>Kayak</option>
-              <option>Priceline</option>
-              <option>Travelocity</option>
-              <option>Other</option>
-            </select>
-          </div>
+        <div class="form-group">
+          <label>Airline *</label>
+          <input type="text" id="fAirline" placeholder="e.g. United, Southwest…" required />
         </div>
         <button type="submit" class="btn-submit">✈️ Add Me to the Board</button>
       </form>
@@ -763,7 +748,6 @@
         <span class="board-cell time">${f.arrDay.replace(/.*Sept /,'Sept ')} · ${fmt12(f.arrTime)}</span>
         <span class="board-cell time">${f.depDay.replace(/.*Sept /,'Sept ')} · ${fmt12(f.depTime)}</span>
         <span class="board-cell airline">${f.airline}</span>
-        <span class="board-cell">${f.booking}</span>
       </div>`).join('');
   }
   function submitFlight(e) {
@@ -775,7 +759,6 @@
       depDay: document.getElementById('fDepDay').value,
       depTime: document.getElementById('fDepTime').value,
       airline: document.getElementById('fAirline').value.trim(),
-      booking: document.getElementById('fBooking').value,
       ts: Date.now()
     };
     const saved = loadFlights();
