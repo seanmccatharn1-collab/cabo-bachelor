@@ -43,6 +43,10 @@
       transition: color 0.2s;
     }
     nav ul a:hover { color: var(--sky); }
+    @media (max-width: 600px) {
+      nav ul { gap: 0.8rem; }
+      nav ul a { font-size: 0.75rem; }
+    }
 
     /* ── HERO ── */
     #hero {
@@ -279,6 +283,168 @@
     .btn-primary-hotel { background: var(--ocean); color: var(--white); }
     .btn-secondary-hotel { background: var(--coral); color: var(--white); }
 
+    /* ── FLIGHTS SECTION ── */
+    #flights { background: #f0f4f8; padding: 5rem 1.5rem; }
+    .flights-inner { max-width: 1000px; margin: 0 auto; }
+
+    .flight-board {
+      background: #0d1b2a;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.18);
+    }
+    .board-header {
+      background: #0a1628;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      border-bottom: 1px solid #1e3a5f;
+    }
+    .board-header-title { color: #fff; font-weight: 700; font-size: 0.95rem; }
+    .board-header-sub { color: #90e0ef; font-size: 0.78rem; margin-left: auto; }
+    .board-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+    .board-rows { padding: 0.5rem 0; min-height: 120px; }
+    .board-row {
+      display: grid;
+      grid-template-columns: 1.4fr 1.4fr 1fr 1fr 1.2fr;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      border-bottom: 1px solid #1a2d47;
+      align-items: center;
+      transition: background 0.2s;
+    }
+    .board-row:last-child { border-bottom: none; }
+    .board-row:hover { background: #132038; }
+    .board-row-header {
+      background: #091522;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #90e0ef;
+      padding: 0.5rem 1.5rem;
+    }
+    .board-cell { color: #e0e0e0; font-size: 0.85rem; }
+    .board-cell.name { color: #fff; font-weight: 700; }
+    .board-cell.airline { color: #90e0ef; font-weight: 600; }
+    .board-cell.time { color: #ffd166; font-family: monospace; font-size: 0.9rem; }
+    .board-empty { color: #4a6a8a; text-align: center; padding: 2rem; font-size: 0.88rem; }
+
+    /* flight form */
+    .flight-form-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .form-section-title {
+      font-family: 'Pacifico', cursive;
+      color: var(--ocean);
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+    .form-section-desc { color: #888; font-size: 0.88rem; margin-bottom: 1.5rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+    .form-group label { font-size: 0.82rem; font-weight: 600; color: #555; }
+    .form-group input, .form-group select {
+      border: 1.5px solid #ddd;
+      border-radius: 10px;
+      padding: 0.65rem 0.9rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      background: var(--white);
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus { border-color: var(--ocean); }
+    .btn-submit {
+      width: 100%;
+      background: var(--ocean);
+      color: var(--white);
+      border: none;
+      border-radius: 12px;
+      padding: 0.85rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-submit:hover { background: #005f91; transform: translateY(-2px); }
+    .success-msg {
+      display: none;
+      background: #d4edda;
+      color: #155724;
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    /* ── ROOM SHARE SECTION ── */
+    #roomshare { background: var(--sand); padding: 5rem 1.5rem; }
+    .roomshare-inner { max-width: 1000px; margin: 0 auto; }
+
+    .chat-board {
+      background: var(--white);
+      border-radius: 24px;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+      overflow: hidden;
+      max-height: 420px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2rem;
+    }
+    .chat-header {
+      background: #f6f6f6;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .chat-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .chat-title { font-weight: 700; font-size: 0.95rem; margin-left: 0.3rem; }
+    .chat-sub { font-size: 0.78rem; color: #888; }
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .chat-messages::-webkit-scrollbar { width: 4px; }
+    .chat-messages::-webkit-scrollbar-thumb { background: #ccc; border-radius: 99px; }
+    .bubble-row { display: flex; flex-direction: column; }
+    .bubble-row.alt { align-items: flex-end; }
+    .bubble-name { font-size: 0.72rem; font-weight: 600; color: #888; margin-bottom: 0.2rem; padding: 0 14px; }
+    .bubble {
+      max-width: 78%;
+      padding: 0.65rem 1rem;
+      border-radius: 18px;
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+    .bubble.left { background: #e5e5ea; color: var(--dark); border-bottom-left-radius: 4px; }
+    .bubble.right { background: #0a7aff; color: #fff; border-bottom-right-radius: 4px; }
+    .bubble-time { font-size: 0.68rem; color: #aaa; margin-top: 0.25rem; padding: 0 14px; }
+    .board-empty-light { color: #aaa; text-align: center; padding: 2rem; font-size: 0.88rem; }
+
+    .roomshare-form-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
     /* ── FOOTER ── */
     footer {
       background: #012a4a;
@@ -297,7 +463,9 @@
   <div class="nav-logo">🌊 Cabo '25</div>
   <ul>
     <li><a href="#hero">Home</a></li>
-    <li><a href="#hotel">The Hotel</a></li>
+    <li><a href="#hotel">Hotel</a></li>
+    <li><a href="#flights">Flights</a></li>
+    <li><a href="#roomshare">Room Share</a></li>
   </ul>
 </nav>
 
@@ -310,7 +478,7 @@
   <span class="floater f4">☀️</span>
   <span class="floater f5">🐠</span>
 
-  <div class="hero-pill">🎉 Bachelor Party · Guys Only</div>
+  <div class="hero-pill">🎉 Bachelor Party</div>
   <h1 class="hero-title">Cabo San Lucas</h1>
   <p class="hero-subtitle">September 4 – 8, 2025 &nbsp;·&nbsp; Baja California, Mexico 🇲🇽</p>
 
@@ -321,7 +489,10 @@
     <div class="info-chip">🎰 Adults Only</div>
   </div>
 
-  <a href="#hotel" class="hero-cta">See Where We're Staying 🏨</a>
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+    <a href="#hotel" class="hero-cta">See the Hotel 🏨</a>
+    <a href="#flights" class="hero-cta" style="background:rgba(255,255,255,0.15);backdrop-filter:blur(6px);border:2px solid rgba(255,255,255,0.4);box-shadow:none;">Share Your Flights ✈️</a>
+  </div>
 
   <div class="waves">
     <div class="wave"></div>
@@ -346,7 +517,7 @@
         <img src="https://www.riu.com/dam/02-RIU-Espanol/Building-Blocks/04-Paises/13-Mexico/02-Los-Cabos/03-Hotel-Riu-Palace-Baja-California/Imagenes/001-Piscina-Exterior/piscina-hotel-riu-palace-baja-california-4.jpg" alt="Pool" />
       </div>
       <div class="gallery-sm">
-        <img src="https://www.riu.com/dam/02-RIU-Espanol/Building-Blocks/04-Paises/13-Mexico/02-Los-Cabos/03-Hotel-Riu-Palace-Baja-California/Imagenes/001-Piscina-Exterior/piscina-hotel-riu-palace-baja-california-1.jpg" alt="Swim-up bar" />
+        <img src="https://www.riu.com/dam/02-RIU-Espanol/Building-Blocks/00-Bodas/Bodas-2023/Multimedia/Fotos/New-Locations-2025/BodasXBC/weddings-xbc.jpg" alt="Beachfront at Riu Palace Baja California" />
       </div>
     </div>
 
@@ -386,11 +557,291 @@
   </div>
 </section>
 
+<!-- FLIGHTS -->
+<section id="flights">
+  <div class="flights-inner">
+    <span class="section-eyebrow">Travel Board</span>
+    <h2 class="section-heading">Who's Flying When? ✈️</h2>
+    <p class="section-lead">Already booked? Drop your flight info so the group knows when you're arriving and leaving.</p>
+
+    <!-- Flight display board -->
+    <div class="flight-board">
+      <div class="board-header">
+        <div class="board-dot" style="background:#ff5f57;"></div>
+        <div class="board-dot" style="background:#febc2e;"></div>
+        <div class="board-dot" style="background:#28c840;"></div>
+        <div class="board-header-title">✈️ Cabo '25 — Flight Board</div>
+        <div class="board-header-sub">SJD · Los Cabos Int'l Airport</div>
+      </div>
+      <div class="board-row board-row-header">
+        <span>Name</span><span>Arriving</span><span>Leaving</span><span>Airline</span><span>Booked Via</span>
+      </div>
+      <div class="board-rows" id="flightRows">
+        <div class="board-empty">No flights posted yet — be the first! 👇</div>
+      </div>
+    </div>
+
+    <!-- Flight submission form -->
+    <div class="flight-form-card">
+      <div class="form-section-title">Add Your Flight Info 🛫</div>
+      <div class="form-section-desc">Share your arrival & departure so everyone can coordinate pickups, dinners, and arrivals.</div>
+      <form id="flightForm" onsubmit="submitFlight(event)">
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" id="fName" placeholder="e.g. Jake M." required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Arriving — Day *</label>
+            <select id="fArrDay" required>
+              <option value="">Select day</option>
+              <option>Thursday, Sept 4</option>
+              <option>Friday, Sept 5</option>
+              <option>Saturday, Sept 6</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Arriving — Time *</label>
+            <input type="time" id="fArrTime" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Leaving — Day *</label>
+            <select id="fDepDay" required>
+              <option value="">Select day</option>
+              <option>Sunday, Sept 7</option>
+              <option>Monday, Sept 8</option>
+              <option>Tuesday, Sept 9</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Leaving — Time *</label>
+            <input type="time" id="fDepTime" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Airline *</label>
+            <input type="text" id="fAirline" placeholder="e.g. United, Southwest…" required />
+          </div>
+          <div class="form-group">
+            <label>Booked Through *</label>
+            <select id="fBooking" required>
+              <option value="">Select…</option>
+              <option>Airline's Website</option>
+              <option>Expedia</option>
+              <option>Google Flights</option>
+              <option>Kayak</option>
+              <option>Priceline</option>
+              <option>Travelocity</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn-submit">✈️ Add Me to the Board</button>
+      </form>
+      <div class="success-msg" id="flightSuccess">🛫 You're on the board! Safe travels.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOM SHARE -->
+<section id="roomshare">
+  <div class="roomshare-inner">
+    <span class="section-eyebrow">Room Share Board</span>
+    <h2 class="section-heading">Haven't Booked Yet? 🛏️</h2>
+    <p class="section-lead">Still looking to book or want to split a room? Post your info and preferred dates below so others can reach out.</p>
+
+    <!-- Chat board -->
+    <div class="chat-board">
+      <div class="chat-header">
+        <div class="chat-dot" style="background:#ff5f57;"></div>
+        <div class="chat-dot" style="background:#febc2e;"></div>
+        <div class="chat-dot" style="background:#28c840;"></div>
+        <div>
+          <div class="chat-title">🛏️ Room Share — Cabo '25</div>
+          <div class="chat-sub">Looking to book together or split costs</div>
+        </div>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="board-empty-light">No posts yet — be the first! 👇</div>
+      </div>
+    </div>
+
+    <!-- Room share form -->
+    <div class="roomshare-form-card">
+      <div class="form-section-title">Post Your Info 📲</div>
+      <div class="form-section-desc">Let others know you're looking to book or share. Include your preferred dates and how to reach you.</div>
+      <form id="roomForm" onsubmit="submitRoom(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name *</label>
+            <input type="text" id="rName" placeholder="e.g. Tyler B." required />
+          </div>
+          <div class="form-group">
+            <label>Flying From *</label>
+            <input type="text" id="rCity" placeholder="e.g. Houston, TX" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Preferred Arrival Date</label>
+            <select id="rArrDate">
+              <option value="">Select…</option>
+              <option>Thursday, Sept 4</option>
+              <option>Friday, Sept 5</option>
+              <option>Saturday, Sept 6</option>
+              <option>Flexible</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Preferred Departure Date</label>
+            <select id="rDepDate">
+              <option value="">Select…</option>
+              <option>Sunday, Sept 7</option>
+              <option>Monday, Sept 8</option>
+              <option>Tuesday, Sept 9</option>
+              <option>Flexible</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Contact Info (phone, Instagram, email) *</label>
+          <input type="text" id="rContact" placeholder="e.g. @tylerb or 713-555-0199" required />
+        </div>
+        <div class="form-group">
+          <label>Message (optional)</label>
+          <input type="text" id="rMessage" placeholder="e.g. Down to split a double room, text me!" />
+        </div>
+        <button type="submit" class="btn-submit">🏄 Post to Room Share Board</button>
+      </form>
+      <div class="success-msg" id="roomSuccess">✅ Posted! Others can now see your info above.</div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-logo">Cabo '25 🌊</div>
   <p>Bachelor Party &nbsp;·&nbsp; September 4–8, 2025 &nbsp;·&nbsp; Cabo San Lucas, Mexico</p>
   <p>Hotel Riu Palace Baja California &nbsp;·&nbsp; Adults Only &nbsp;·&nbsp; All-Inclusive</p>
 </footer>
 
+<script>
+  const FLIGHT_KEY = 'cabo25_flights_v1';
+  const ROOM_KEY   = 'cabo25_rooms_v1';
+
+  function fmt12(t) {
+    if (!t) return '—';
+    const [h, m] = t.split(':').map(Number);
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    return `${((h % 12) || 12)}:${String(m).padStart(2,'0')} ${ampm}`;
+  }
+  function timeAgo(ts) {
+    const diff = Math.floor((Date.now() - ts) / 60000);
+    if (diff < 1) return 'Just now';
+    if (diff < 60) return `${diff}m ago`;
+    const h = Math.floor(diff / 60);
+    if (h < 24) return `${h}h ago`;
+    return new Date(ts).toLocaleDateString('en-US', { month:'short', day:'numeric' });
+  }
+
+  // ── FLIGHTS ──
+  function loadFlights() {
+    try { return JSON.parse(localStorage.getItem(FLIGHT_KEY) || '[]'); } catch { return []; }
+  }
+  function renderFlights() {
+    const rows = document.getElementById('flightRows');
+    const data = loadFlights();
+    if (!data.length) {
+      rows.innerHTML = '<div class="board-empty">No flights posted yet — be the first! 👇</div>';
+      return;
+    }
+    rows.innerHTML = data.map(f => `
+      <div class="board-row">
+        <span class="board-cell name">${f.name}</span>
+        <span class="board-cell time">${f.arrDay.replace(/.*Sept /,'Sept ')} · ${fmt12(f.arrTime)}</span>
+        <span class="board-cell time">${f.depDay.replace(/.*Sept /,'Sept ')} · ${fmt12(f.depTime)}</span>
+        <span class="board-cell airline">${f.airline}</span>
+        <span class="board-cell">${f.booking}</span>
+      </div>`).join('');
+  }
+  function submitFlight(e) {
+    e.preventDefault();
+    const entry = {
+      name: document.getElementById('fName').value.trim(),
+      arrDay: document.getElementById('fArrDay').value,
+      arrTime: document.getElementById('fArrTime').value,
+      depDay: document.getElementById('fDepDay').value,
+      depTime: document.getElementById('fDepTime').value,
+      airline: document.getElementById('fAirline').value.trim(),
+      booking: document.getElementById('fBooking').value,
+      ts: Date.now()
+    };
+    const saved = loadFlights();
+    saved.push(entry);
+    localStorage.setItem(FLIGHT_KEY, JSON.stringify(saved));
+    renderFlights();
+    document.getElementById('flightForm').reset();
+    const msg = document.getElementById('flightSuccess');
+    msg.style.display = 'block';
+    setTimeout(() => msg.style.display = 'none', 4000);
+  }
+
+  // ── ROOM SHARE ──
+  function loadRooms() {
+    try { return JSON.parse(localStorage.getItem(ROOM_KEY) || '[]'); } catch { return []; }
+  }
+  function renderRooms() {
+    const container = document.getElementById('chatMessages');
+    const data = loadRooms();
+    if (!data.length) {
+      container.innerHTML = '<div class="board-empty-light">No posts yet — be the first! 👇</div>';
+      return;
+    }
+    container.innerHTML = '';
+    data.forEach((r, i) => {
+      const isAlt = i % 2 !== 0;
+      const dates = [r.arrDate, r.depDate].filter(d => d && d !== '').join(' → ');
+      const div = document.createElement('div');
+      div.className = `bubble-row${isAlt ? ' alt' : ''}`;
+      div.innerHTML = `
+        <div class="bubble-name">${r.name} · ✈️ ${r.city}</div>
+        <div class="bubble ${isAlt ? 'right' : 'left'}">
+          🛏️ Looking to book / split a room<br>
+          ${dates ? `📅 ${dates}<br>` : ''}
+          📲 ${r.contact}
+          ${r.message ? `<br><em>${r.message}</em>` : ''}
+        </div>
+        <div class="bubble-time">${timeAgo(r.ts)}</div>`;
+      container.appendChild(div);
+    });
+    container.scrollTop = container.scrollHeight;
+  }
+  function submitRoom(e) {
+    e.preventDefault();
+    const entry = {
+      name:    document.getElementById('rName').value.trim(),
+      city:    document.getElementById('rCity').value.trim(),
+      arrDate: document.getElementById('rArrDate').value,
+      depDate: document.getElementById('rDepDate').value,
+      contact: document.getElementById('rContact').value.trim(),
+      message: document.getElementById('rMessage').value.trim(),
+      ts: Date.now()
+    };
+    const saved = loadRooms();
+    saved.push(entry);
+    localStorage.setItem(ROOM_KEY, JSON.stringify(saved));
+    renderRooms();
+    document.getElementById('roomForm').reset();
+    const msg = document.getElementById('roomSuccess');
+    msg.style.display = 'block';
+    setTimeout(() => msg.style.display = 'none', 4000);
+  }
+
+  // init
+  renderFlights();
+  renderRooms();
+</script>
 </body>
 </html>
