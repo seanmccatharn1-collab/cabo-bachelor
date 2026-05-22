@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cabo 2025 🌊 Bachelor Party</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ocean: #0077b6;
+      --sky: #90e0ef;
+      --sand: #fdf6e3;
+      --coral: #ff6b6b;
+      --white: #ffffff;
+      --dark: #1a1a2e;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; background: var(--sand); color: var(--dark); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(0, 55, 100, 0.88);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 2.5rem;
+    }
+    .nav-logo { font-family: 'Pacifico', cursive; color: var(--white); font-size: 1.2rem; }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--sky); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #012a4a 0%, #013a63 35%, #014f86 65%, #0466c8 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 7rem 1.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      z-index: 0;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(1,42,74,0.45) 0%, rgba(1,42,74,0.65) 60%, rgba(1,42,74,0.9) 100%);
+      z-index: 1;
+    }
+    #hero > *:not(.hero-bg):not(.waves) { position: relative; z-index: 2; }
+    #hero > .waves { z-index: 2; }
+
+    .floater {
+      position: absolute;
+      font-size: 2rem;
+      animation: float 7s ease-in-out infinite;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    .f1 { top: 14%; left: 7%;  font-size: 2.6rem; animation-delay: 0s; }
+    .f2 { top: 20%; right: 9%; animation-delay: 1.5s; }
+    .f3 { top: 58%; left: 4%; font-size: 1.6rem; animation-delay: 3s; }
+    .f4 { top: 62%; right: 7%; animation-delay: 0.8s; }
+    .f5 { top: 8%;  right: 22%; font-size: 1.5rem; animation-delay: 2s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      50%       { transform: translateY(-20px) rotate(4deg); }
+    }
+
+    .hero-pill {
+      background: var(--coral);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 0.4rem 1.1rem;
+      border-radius: 99px;
+      margin-bottom: 1.4rem;
+    }
+    .hero-title {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(3rem, 9vw, 6.5rem);
+      color: var(--white);
+      line-height: 1.05;
+      text-shadow: 0 6px 30px rgba(0,0,0,0.35);
+      margin-bottom: 0.6rem;
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      color: var(--sky);
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+    }
+    .info-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .info-chip {
+      background: rgba(255,255,255,0.12);
+      border: 1.5px solid rgba(255,255,255,0.22);
+      border-radius: 12px;
+      padding: 0.7rem 1.4rem;
+      color: var(--white);
+      font-size: 0.92rem;
+      font-weight: 600;
+      backdrop-filter: blur(6px);
+    }
+    .info-chip span { color: var(--sky); }
+    .hero-cta {
+      display: inline-block;
+      background: var(--coral);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.9rem 2.4rem;
+      border-radius: 99px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 6px 24px rgba(255,107,107,0.4);
+    }
+    .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255,107,107,0.5); }
+
+    .waves {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 110px;
+      overflow: hidden;
+    }
+    .wave {
+      position: absolute; bottom: 0;
+      width: 200%; height: 100%;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%23fdf6e3' fill-opacity='1' d='M0,50 C360,100 1080,0 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") repeat-x bottom;
+      background-size: 50% 100%;
+      animation: waveroll 9s linear infinite;
+    }
+    .wave2 {
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%23fdf6e3' fill-opacity='0.4' d='M0,70 C360,20 1080,100 1440,60 L1440,100 L0,100 Z'/%3E%3C/svg%3E") repeat-x bottom;
+      background-size: 50% 100%;
+      animation: waveroll 13s linear infinite reverse;
+    }
+    @keyframes waveroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── HOTEL ── */
+    #hotel { background: var(--sand); padding: 5rem 1.5rem; }
+    .hotel-inner { max-width: 1000px; margin: 0 auto; }
+
+    .section-eyebrow {
+      display: inline-block;
+      background: var(--ocean);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.3rem 1rem;
+      border-radius: 99px;
+      margin-bottom: 0.8rem;
+    }
+    .section-heading {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      color: var(--ocean);
+      margin-bottom: 0.6rem;
+    }
+    .section-lead {
+      color: #666;
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 240px 200px;
+      gap: 0.75rem;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+    }
+    .gallery img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .gallery img:hover { transform: scale(1.03); }
+    .gallery-main { grid-row: 1 / 3; overflow: hidden; }
+    .gallery-sm { overflow: hidden; }
+    @media (max-width: 620px) {
+      .gallery { grid-template-columns: 1fr; grid-template-rows: 220px 180px 180px; }
+      .gallery-main { grid-row: auto; }
+    }
+
+    .hotel-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+    }
+    .hotel-card-name {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.5rem;
+      color: var(--ocean);
+      margin-bottom: 0.25rem;
+    }
+    .hotel-card-location { color: #888; font-size: 0.88rem; margin-bottom: 1.5rem; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #f5f9ff;
+      border-radius: 12px;
+      padding: 0.7rem 1rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .feature-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+    .hotel-desc {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+      border-top: 1px solid #eee;
+      padding-top: 1.5rem;
+    }
+
+    .hotel-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-hotel {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      border-radius: 99px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-hotel:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+    .btn-primary-hotel { background: var(--ocean); color: var(--white); }
+    .btn-secondary-hotel { background: var(--coral); color: var(--white); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #012a4a;
+      color: rgba(255,255,255,0.65);
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      font-size: 0.85rem;
+    }
+    .footer-logo { font-family: 'Pacifico', cursive; font-size: 1.5rem; color: var(--sky); margin-bottom: 0.6rem; }
+    footer p { line-height: 1.9; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">🌊 Cabo '25</div>
+  <ul>
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#hotel">The Hotel</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <!-- Rename your hero image to "hero.jpg" and keep it in this same folder -->
+  <img class="hero-bg" src="hero.jpg" alt="Cabo Bachelor Party" onerror="this.style.display='none'" />
+  <span class="floater f1">🌴</span>
+  <span class="floater f2">🍹</span>
+  <span class="floater f3">🌊</span>
+  <span class="floater f4">☀️</span>
+  <span class="floater f5">🐠</span>
+
+  <div class="hero-pill">🎉 Bachelor Party · Guys Only</div>
+  <h1 class="hero-title">Cabo San Lucas</h1>
+  <p class="hero-subtitle">September 4 – 8, 2025 &nbsp;·&nbsp; Baja California, Mexico 🇲🇽</p>
+
+  <div class="info-strip">
+    <div class="info-chip">✈️ Flying from <span>Houston, TX</span></div>
+    <div class="info-chip">📅 <span>4 nights</span> in paradise</div>
+    <div class="info-chip">🍻 All-Inclusive Resort</div>
+    <div class="info-chip">🎰 Adults Only</div>
+  </div>
+
+  <a href="#hotel" class="hero-cta">See Where We're Staying 🏨</a>
+
+  <div class="waves">
+    <div class="wave"></div>
+    <div class="wave wave2"></div>
+  </div>
+</section>
+
+<section id="hotel">
+  <div class="hotel-inner">
+    <span class="section-eyebrow">Where We're Staying</span>
+    <h2 class="section-heading">Hotel Riu Palace Baja California</h2>
+    <p class="section-lead">
+      Sitting right on El Médano beach in Cabo San Lucas — the only adults-only, all-inclusive palace in Los Cabos.
+      Open bar, four pools, and the ocean right outside your door.
+    </p>
+
+    <div class="gallery">
+      <div class="gallery-main">
+        <img src="https://www.riu.com/dam/02-RIU-Espanol/Building-Blocks/04-Paises/13-Mexico/02-Los-Cabos/03-Hotel-Riu-Palace-Baja-California/Imagenes/023-Hotel/hotel-riu-palace-baja-california-10.jpg" alt="Hotel exterior" />
+      </div>
+      <div class="gallery-sm">
+        <img src="https://www.riu.com/dam/02-RIU-Espanol/Building-Blocks/04-Paises/13-Mexico/02-Los-Cabos/03-Hotel-Riu-Palace-Baja-California/Imagenes/001-Piscina-Exterior/piscina-hotel-riu-palace-baja-california-4.jpg" alt="Pool" />
+      </div>
+      <div class="gallery-sm">
+        <img src="https://www.riu.com/dam/02-RIU-Espanol/Building-Blocks/04-Paises/13-Mexico/02-Los-Cabos/03-Hotel-Riu-Palace-Baja-California/Imagenes/001-Piscina-Exterior/piscina-hotel-riu-palace-baja-california-1.jpg" alt="Swim-up bar" />
+      </div>
+    </div>
+
+    <div class="hotel-card">
+      <div class="hotel-card-name">Hotel Riu Palace Baja California</div>
+      <div class="hotel-card-location">📍 Camino Viejo a San José, El Médano Beach, Cabo San Lucas, Mexico</div>
+
+      <div class="features-grid">
+        <div class="feature"><span class="feature-icon">🍹</span> Open Bar 24 Hours</div>
+        <div class="feature"><span class="feature-icon">🏊</span> 4 Pools + Swim-Up Bars</div>
+        <div class="feature"><span class="feature-icon">🍽️</span> All Meals Included</div>
+        <div class="feature"><span class="feature-icon">🏖️</span> Beachfront on El Médano</div>
+        <div class="feature"><span class="feature-icon">🔞</span> Adults Only</div>
+        <div class="feature"><span class="feature-icon">🍣</span> Italian, Japanese & Steakhouse</div>
+        <div class="feature"><span class="feature-icon">💆</span> Renova Spa</div>
+        <div class="feature"><span class="feature-icon">🎵</span> Nightly Entertainment</div>
+        <div class="feature"><span class="feature-icon">🎾</span> 2 Tennis Courts</div>
+        <div class="feature"><span class="feature-icon">🌐</span> Free WiFi</div>
+        <div class="feature"><span class="feature-icon">🎢</span> Water Park Nearby</div>
+        <div class="feature"><span class="feature-icon">🌙</span> Nightclub Access</div>
+      </div>
+
+      <p class="hotel-desc">
+        The Riu Palace Baja California sits on the south tip of the Baja California peninsula,
+        right in front of El Médano beach. With over 600 rooms, four outdoor pools (two with swim-up bars),
+        an open bar around the clock, and a full lineup of restaurants — from a show-cooking American breakfast buffet
+        to Japanese and Italian dinners — there is zero reason to leave. The on-site Renova Spa, two tennis courts,
+        and a gym keep you going between rounds. At night, live music, shows, and a nearby nightclub keep the energy up.
+        This is an adults-only, all-inclusive property — exactly what the doctor ordered for a bachelor party in Cabo.
+      </p>
+
+      <div class="hotel-actions">
+        <a href="https://www.riu.com/en/hotel/mexico/los-cabos/hotel-riu-palace-baja-california" target="_blank" class="btn-hotel btn-primary-hotel">View Hotel Website →</a>
+        <a href="https://www.riu.com/check-in/hotel?h=3803" target="_blank" class="btn-hotel btn-secondary-hotel">Book Your Room 🛏️</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Cabo '25 🌊</div>
+  <p>Bachelor Party &nbsp;·&nbsp; September 4–8, 2025 &nbsp;·&nbsp; Cabo San Lucas, Mexico</p>
+  <p>Hotel Riu Palace Baja California &nbsp;·&nbsp; Adults Only &nbsp;·&nbsp; All-Inclusive</p>
+</footer>
+
+</body>
+</html>
